@@ -15,4 +15,4 @@ When you hover your mouse over the burger icon or click on it, the burger's part
 This project proves that CSS is more powerful than we might think. It's not just for styling web pages. It can bring interactivity and life to our designs. So, never underestimate the magic of CSS. ✨
 
  ## 🎬 Preview
- 
+  <img src="https://github.com/mirayatech/animated-burger-button/assets/71933266/d4f3bb64-ff83-4e1a-89ce-dbf489233726)" width="100%"/>
