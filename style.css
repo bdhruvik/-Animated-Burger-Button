@@ -1,0 +1,358 @@
+:root {
+    --tomato: #f03a17;
+    --pickles: #13a10e;
+    --bun: #eba300;
+    --lettuce: #13a10e;
+    --cheese: #ffc83d;
+    --darker-cheese: #ffba0a;
+    --patty: #8e562e;
+}
+
+html,body {
+    height: 95vh;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.burger {
+   margin: auto;
+   cursor: pointer;
+   width: 4rem;
+   background-color: transparent;
+   padding: 0 0.1rem;
+   border: none;
+}
+
+.burger .bun {
+    background-color:#eba300;
+}
+
+.burger .bun:first-child {
+    border-radius: 2rem 2rem 0 0;
+    position: relative;
+    height: 1.6rem;
+}
+
+.burger .bun:first-child::before , 
+.burger .bun:first-child::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-image: radial-gradient(
+    #ffc83d 0%,
+    #ffc83d 10%,
+    transparent 20%,
+    transparent 100%    
+    );
+    border-radius: 2rem 2rem 0 0;
+    background-size: 1rem 1rem;
+    top: 0.2rem;
+    left: 0.2rem;
+    right: 0.2rem;
+    bottom: 0.2rem;
+}
+
+.burger .bun:first-child::after {
+    background-size: 0.5rem 0.5rem;
+}
+
+.burger .lettuce {
+    z-index: 99;
+    overflow: hidden;
+    height: 0.4rem;
+    position: relative;
+    border-radius: 0.4rem;
+    margin: -0.2rem;
+    /* background-color: #13a10e; */
+}
+
+.burger .lettuce::before , 
+.burger .lettuce::after {
+    display: block;
+    content: "";
+    position: relative;
+    background-image: radial-gradient(
+        transparent 0%,
+        transparent 25%,
+        #13a10e 30%,
+        #13a10e 70%,
+        transparent 75%,
+        transparent 100%
+    );
+    background-size: 0.6rem 0.6rem;
+    height: 0.2rem;
+    right: 0;
+    left: -100%;
+    width: 200%;
+} 
+
+.burger .lettuce::before {
+    background-position: left top;
+    top: 0;
+}
+
+.burger .lettuce::after {
+    background-position: left 0.3rem bottom;
+    bottom: 0;
+}
+
+.burger .tomato {
+    height: 0.5rem;
+    background-color: var(--tomato);
+    margin: 0 0.2rem;
+}
+
+.burger .pickles {
+    height: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.burger .pickles::before ,
+.burger .pickles::after {
+    content: "";
+    display: block;
+    height: 0.3rem;
+    width: 1.2rem;
+    background-color: var(--pickles);
+    margin: 0 0.2rem;
+}
+
+.burger .cheese {
+   /* background-color: #ffba0a; */
+   /* border: 1px solid; */
+   padding-bottom: 0.5rem;
+   margin-bottom: -0.5rem;
+   border-radius: 0.2rem 0.2rem 0 0;
+   overflow: hidden;
+}
+
+.burger .cheese span {
+    display: block;
+    position: relative;
+    background-color: var(--cheese);
+    height: 0.3rem;
+}
+
+.burger .cheese span:before ,
+.burger .cheese span:after {
+    content: "";
+    display: block;
+    transition: all 0.2s ease;
+}
+
+.burger .cheese span::before {
+    position: absolute;
+    border-top: 0.4rem solid var(--cheese);
+    border-left: 0.4rem solid transparent;
+    border-right: 0.4rem solid transparent;
+    transform: translateX(-50%);
+    left: 33.3333333333%;
+    top: 100%;
+    z-index: 99;
+}
+
+.burger .cheese span::after {
+    border-top: 0.4rem solid var(--darker-cheese);
+    border-left: 0.4rem solid transparent;
+    border-right: 0.4rem solid transparent;
+    position: absolute;
+    left: 66.6666666667%;
+    top: 100%;
+    transform: translateX(-50%);
+}
+
+.burger .patty {
+ position: relative;
+ height: 0.6rem;
+ background-color: var(--patty);
+ border-radius: 0.6rem;
+ z-index: 9;
+ margin: 0 -0.2rem;
+}
+
+.burger .bun:last-child {
+  height: 0.6rem;
+  border-radius: 0 0 0.6rem 0.6rem;
+}
+
+.burger .bun , 
+.burger .lettuce , 
+.burger .tomato ,
+.burger .pickles , 
+.burger .cheese ,
+.burger .patty{
+    display: block;
+    transition: margin 0.2s ease-out;
+}
+
+.burger:hover > * {
+    margin-bottom: 0.4rem;
+}
+
+.burger:hover .bun:first-child {
+    margin-bottom: 0;
+}
+
+.burger:hover .lettuce {
+    margin-bottom: 0.3rem;
+}
+
+.burger:hover .pickles {
+    height: 0.2rem;
+}
+
+.burger:hover .cheese {
+    padding-bottom: 0.8rem;
+}
+
+.burger:hover .cheese span::before {
+    border-top-width: 0.8rem;
+    border-left-width: 0.8rem;
+    border-right-width: 0.8rem;
+    animation: rotate-cheese-1 2s infinite linear;
+}
+
+.burger:hover .cheese span::after {
+    animation: rotate-cheese-2 2s infinite linear;
+}
+
+@keyframes rotate-cheese-1{
+   0% {
+    left: 33.3333333333%;
+    transform: translateX(-50%);
+   }
+   33.333% {
+    left: 0%;
+    transform: translateX(-100%);
+   }
+   33.334% {
+    left: 100%;
+    transform: translateX(100%);
+   }
+}
+
+@keyframes rotate-cheese-2 {
+    0% {
+        left: 66.6666666667%;
+        transform: translateX(-50%);
+    }
+    33.333% {
+        left: 100%;
+        transform: translateX(0%);
+    }
+    33.334% {
+        left: 0%;
+        transform: translateX(-100%);
+    }
+}
+
+.burger:hover .pickles::before {
+    animation: rotate-pic-1 2s infinite linear alternate;
+}
+
+.burger:hover .pickles::after {
+    animation: rotate-pic-2 2s infinite linear alternate;
+}
+
+@keyframes rotate-pic-1 {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%) translateX(0.4rem);
+    }
+}
+
+@keyframes rotate-pic-2 {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%) translateX(-0.4rem);
+    }
+}
+
+.burger:hover .lettuce::before ,
+.burger:hover .lettuce::after {
+    animation: rotate-lettuce 3s infinite linear;
+}
+
+.burger:hover .bun:first-child::before {
+    animation: rotate-bun-1 1s infinite linear;
+}
+
+.burger:hover .bun:first-child::after {
+    animation: rotate-bun-2 1s infinite linear;
+}
+
+.burger:hover .tomato  {
+    animation: same 1s infinite linear alternate-reverse;
+}
+
+.burger:hover .patty {
+    animation: same-2 1s infinite linear alternate-reverse;
+}
+
+@keyframes same-2 {
+    0% {
+        transform: rotate(4deg);
+    }
+    50%{
+        transform: rotate(0);
+    }
+    100% {
+
+        transform: rotate(-4deg);
+    }
+}
+
+
+@keyframes same {
+    0% {
+        transform: rotate(-4deg);
+    }
+    50% {
+       transform: rotate(0);
+    }
+    100% {
+        transform: rotate(4deg);
+    }
+}
+
+@keyframes rotate-bun-1 {
+    0% {
+        background-position-x: 0;
+    }
+    50% {
+        background-position-x: 0.5rem;
+    }
+    100% {
+        background-position-x: 1rem;
+    }
+}
+
+@keyframes rotate-bun-2 {
+    0% {
+        background-position-x: 0.5rem;
+    }
+    50% {
+        background-position-x: 1rem;
+    }
+    100% {
+        background-position-x: 1.5rem;
+    }
+}
+
+@keyframes rotate-lettuce {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
